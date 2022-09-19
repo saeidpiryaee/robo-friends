@@ -1,15 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/header.js";
 import "./styles/styles.css";
-const App = () => {
-  return (
-    <div className="hey">
-      <h1>Hello</h1>
-      <Header />
-    </div>
-  );
-};
+import JSON from "./db.json";
+import NewsList from "./components/news_list";
+class App extends Component {
+  state = {
+    news: JSON,
+  };
+  render() {
+    return (
+      <div className="hey">
+        <Header />
+        <NewsList news={this.state.news} />
+      </div>
+    );
+  }
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
